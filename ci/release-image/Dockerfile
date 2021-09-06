@@ -1,21 +1,28 @@
 FROM debian:11
 
+
 RUN apt-get update \
- && apt-get install -y \
+ && apt-get upgrade 
+    apt-get install -y \
     curl \
+    wget \
+    python3 \
+    gcc \ 
+    python3-pip \
+    gnupg \
     dumb-init \
-    zsh \
     htop \
     locales \
     man \
     nano \
     git \
     procps \
-    openssh-client \
+    ssh \
     sudo \
-    vim.tiny \
-    lsb-release \
-  && rm -rf /var/lib/apt/lists/*
+    vim \
+   rclone \
+   fuse \
+    && rm -rf /var/lib/apt/lists/*
 
 # https://wiki.debian.org/Locale#Manually
 RUN sed -i "s/# en_US.UTF-8/en_US.UTF-8/" /etc/locale.gen \
